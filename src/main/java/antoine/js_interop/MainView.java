@@ -17,9 +17,18 @@ public class MainView extends Composite<VerticalLayout> {
 
         pivotTable.setColumnDefs(
             ColDef.builder()
-                .headerName("col1")
-                .field("col1")
+                .headerName("firstname")
+                .field("firstname")
                 .enablePivot(true)
+                .enableRowGroup(true)
+                .enableValue(true)
+                .build(),
+            ColDef.builder()
+                .headerName("lastname")
+                .field("lastname")
+                .enablePivot(true)
+                .enableRowGroup(true)
+                .enableValue(true)
                 .build()
         );
 
@@ -39,10 +48,7 @@ public class MainView extends Composite<VerticalLayout> {
                 )
         );
 
-        var col = new VerticalLayout(
-            new H1("Hello world"),
-            pivotTable
-        );
+        var col = new VerticalLayout(new H1("Hello world"), pivotTable);
         col.setWidthFull();
         return col;
     }
