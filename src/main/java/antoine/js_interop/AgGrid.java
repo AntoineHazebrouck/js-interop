@@ -13,7 +13,7 @@ import com.vaadin.flow.component.dependency.NpmPackage;
 
 @Tag("ag-grid-wrapper")
 @NpmPackage(value = "ag-grid-enterprise", version = "35.0.0")
-@JsModule("./src/ag-grid-wrapper.ts")
+@JsModule("src/ag-grid-wrapper.ts")
 public class AgGrid extends Component implements HasSize {
 
     public <T> void setRowData(
