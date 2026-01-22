@@ -1,6 +1,5 @@
 import {
     AllEnterpriseModule,
-    ColDef,
     createGrid,
     GridApi,
     GridOptions,
@@ -13,10 +12,10 @@ import { customElement, property } from "lit/decorators.js";
 class AgGridWrapper extends LitElement {
     private gridApi?: GridApi;
 
-    @property({ type: Array })
+    @property()
     rowData: any[] = [];
 
-    @property({ type: Array<ColDef> })
+    @property()
     columnDefs: any[] = [];
 
     protected firstUpdated(_changedProperties: PropertyValues): void {
@@ -29,16 +28,11 @@ class AgGridWrapper extends LitElement {
         };
         const eGui = this.shadowRoot?.querySelector("#myGrid") as HTMLElement;
         this.gridApi = createGrid(eGui, gridOptions);
-
-        console.log(eGui);
-        console.log(this.gridApi);
     }
 
     protected updated(_changedProperties: PropertyValues): void {
         if (this.gridApi && _changedProperties.has("rowData")) {
             this.gridApi.setGridOption("rowData", this.rowData);
-
-            console.log("updated data");
         }
     }
 
